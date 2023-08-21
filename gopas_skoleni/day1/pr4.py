@@ -1,4 +1,5 @@
 import sys
+from typing import Any
 
 class Clovek:
     def __init__(self, jmeno:str="", vek:int=0): 
@@ -15,7 +16,7 @@ class Clovek:
     def __lt__(self,other):
         return self.vek<other.vek
     
-    def __getitem__(self,item):
+    def __getitem__(self,item): #kdyz chceme iterova, kdyz chcem iterator pr6
         return self.jmeno[item]
     
     def __setitem__(self,key, value):
@@ -25,8 +26,12 @@ class Clovek:
          import math
          return math.sin(p)
     
-    def __del__(self):
+    def __del__(self): #jen vytiskne vymazani objektu, stara se o to sam sytem automaticky
+                        # normalne se implementovat nebude, nestarame se vetsinou o ukonceni objektu
          print(f"KONEC CLOVEKA: {self.jmeno}")
+
+    def __getattr__(self, item):
+        print(f"CHCETE PO ME aatribut : {item}")
 
     def tiskni(self): #nechci aby mela parametry, potrebuju odkazat na parametry pepy, ktere jeste nemam
             #kazda metoda v pythonu musi mit aspon jeden parametr - self, nemusi se to jmenovat self ale je to zvykem
@@ -55,6 +60,8 @@ print(pepa[3]) #__getitem__
 for a in pepa:  #pepa je nyni iterovatelnej
         print(a)
 
+print("pepa.a: ")
+a = pepa.a # __getattr__
 
 pepa[3]="neco" #set item
 print(pepa[3])

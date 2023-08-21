@@ -10,3 +10,4 @@ mocnina3 = Mocnina(3)
 
 print(mocnina2(2))
 print(mocnina3(2))
+
