@@ -11,7 +11,18 @@ class Clovek:
         return self.jmeno
     
     def __add__(self,other):
-        return self.vek + other.vek
+        # if (hasattr(other,"vek")):
+        #      return self.vek + other.vek
+        # else:
+        #      return self.vek + other
+        
+        try:
+             return self.vek + other.vek
+        except AttributeError:
+             return self.vek + other
+        
+    
+    
     
     def __lt__(self,other):
         return self.vek<other.vek
@@ -65,6 +76,12 @@ a = pepa.a # __getattr__
 
 pepa[3]="neco" #set item
 print(pepa[3])
+
+#kdyz chci ziskat vek od pepy
+print(pepa.vek)
+print(getattr(pepa,"vek")) #vyhoda kdyz mam ten vek ve stringu
+
+print("pepa +10",pepa+10)
 
 print(sys.getrefcount(pepa))
 
