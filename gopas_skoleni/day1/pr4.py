@@ -11,15 +11,26 @@ class Clovek:
         return self.jmeno
     
     def __add__(self,other):
-        # if (hasattr(other,"vek")):
+        if (hasattr(other,"vek")):
+             return self.vek + other.vek
+        else:
+             return self.vek + other
+        
+        # try:
         #      return self.vek + other.vek
-        # else:
+        # except AttributeError:
         #      return self.vek + other
         
-        try:
-             return self.vek + other.vek
-        except AttributeError:
-             return self.vek + other
+        # if (isinstance(other,Clovek)):
+        #     return self.vek + other.vek
+        # if (isinstance(other,int)):
+        #      return self.vek + other
+        
+    def __radd__(self,other):
+         return self.__add__(other)
+    
+   
+    
         
     
     
@@ -82,6 +93,7 @@ print(pepa.vek)
 print(getattr(pepa,"vek")) #vyhoda kdyz mam ten vek ve stringu
 
 print("pepa +10",pepa+10)
+print("10 + pepa",10 + pepa) #__radd__
 
 print(sys.getrefcount(pepa))
 
