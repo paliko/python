@@ -59,10 +59,24 @@ class Clovek:
             #kazda metoda v pythonu musi mit aspon jeden parametr - self, nemusi se to jmenovat self ale je to zvykem
         print(f"Jmeno : {self.jmeno}, vek : {self.vek}")
 
+
+
+class Student(Clovek):
+    def __init__(self,jmeno="",vek=0,skola=""):
+        super().__init__(jmeno,vek) #zavolam rodicovsky init
+        self.skola = skola
+
+    def tiskni(self):
+         print(f"Jmeno : {self.jmeno}, vek : {self.vek}, skola : {self.skola}")
+
+
 #pepa = Clovek() #vytvarim instance, zavolam jakobych zavolal funkci 
 #nemusim mit, kdyz jsem pridal parametry do init
 # pepa.jmeno = "Josef" #instancni promena, pepa ma svoji, lojza ma svoji
 # pepa.vek = 10
+
+adam = Student("Adam",15,"ZS")
+adam.tiskni()
 
 pepa = Clovek("Josef",20)
 
