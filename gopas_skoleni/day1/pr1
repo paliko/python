@@ -1,0 +1,7 @@
+import collections
+
+Student = collections.namedtuple("Student",["jmeno","vek","skola"])
+
+pepa = Student("Josef",10,"ZS")
+print(pepa.jmeno)
+print(pepa.vek)

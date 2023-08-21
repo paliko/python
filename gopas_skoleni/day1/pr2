@@ -1,0 +1,16 @@
+from dataclasses import dataclass
+
+@dataclass
+# @dataclass(frozen=True)
+#   kdyz pouziju frozen nemuzu menit parametry e.g. pepa.jmeno = "JOSEF"
+class Student:
+    jmeno: str = ""
+    vek: int = 0
+    skola: str = "ZS"
+
+#Tohle by se dalo napsat misto @dataclass
+# Student = dataclass(Student)
+
+pepa = Student("Josef",10,"ZS")
+pepa.jmeno = "JOSEF"
+print(pepa.jmeno)
