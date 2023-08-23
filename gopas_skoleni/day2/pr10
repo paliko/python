@@ -1,0 +1,13 @@
+from abc import ABC,abstractmethod
+
+class Prototyp(ABC):
+    @abstractmethod
+    def tisk(self):
+        pass
+
+
+class Clovek(Prototyp):
+    def tisk(self):
+        pass
+
+pepa = Clovek()
