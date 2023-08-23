@@ -1,16 +1,19 @@
 import threading, time
 
-def citac():
+def citac(id):
     c=1
     while True:
-        print(f"Citac : {c}")
+        print(f"Citac : {id} - {c}")
         c+=1
         time.sleep(1)
 
 # citac() #takhle nikdy neskonci
 
-vlakno = threading.Thread(target=citac) # vytvori vlakno z funkce
+vlakno1 = threading.Thread(target=citac,args=(1,)) # vytvori vlakno z funkce
+                                                    # kdyby tam nebyla carka (1,) tak by to byl int a ne ntice
+vlakno2 = threading.Thread(target=citac,args=(2,)) 
 
-vlakno.start()
+vlakno1.start()
+vlakno2.start()
 
 print ("Pokracuje dal .....")
