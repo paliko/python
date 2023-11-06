@@ -19,7 +19,7 @@ class Citac(multiprocessing.Process):
             time.sleep(1)
 
 
-if (__name__=="__main__"):
+if (__name__=="__main__"): # file je .py - nekdo ho muze a to by ho spustil, tahle pdminka zarucuje to nepsusti nekdo kdo to importoval
     proces1 = Citac(1)
     proces2 = Citac(2)
     proces1.start()

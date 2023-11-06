@@ -16,6 +16,8 @@ class Citac(threading.Thread):
             print(text)
             with mutex: # kdybych vyhodnotil ze dva radky nize jsou kriticky,(ted jsou safe diky Threading.Thread)
                         #diky mutexu jsou chaneny a v jednom 
+                        # kdyby bylo jeno append, byla by to atomicka operace - nemusel bych mutex pouzit
+                        # ale tohle uz jsou dve operace a kdyz chci zamknout musim pouzit mutex
                 vysl.append(text) 
                 c+=1
             time.sleep(1)
