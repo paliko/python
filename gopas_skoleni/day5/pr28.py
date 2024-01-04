@@ -22,3 +22,6 @@ def bmi():
 if __name__ == '__main__':
     # bmi()
     start_server(bmi, port=1025, host="") #ted to posloucha na portu 80
+
+# http://127.0.0.1:51931/
+# nevim k cemu bytl tenhle port
